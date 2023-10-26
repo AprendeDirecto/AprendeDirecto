@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
-            <?php $indexURL = '/index.php'; ?>
+        {{--    <?php $indexURL = '/index.php'; ?>
             <li class="nav-item <?php echo active_pagina($indexURL); ?>">
                 <a class="nav-link" href="{{ route('inicio') }}">Home <?php echo current_pagina($indexURL); ?></a>
             </li>

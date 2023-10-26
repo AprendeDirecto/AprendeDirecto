@@ -8,12 +8,10 @@ if (isset($_SESSION['idUsuario'])) {
 }
 
 if (isset($usuario)) {
-    foreach ($usuario as $i) {
-        if ($i->username == $request->username) {
-            $_SESSION['idUsuario'] = $i->id;
-            header('Location: /');
-            exit();
-        }
+    if ($usuario->username == $request->username) {
+        $_SESSION['idUsuario'] = $usuario->id;
+        header('Location: /');
+        exit();
     }
     $mensaje ='Usuario no encontrado';
 }

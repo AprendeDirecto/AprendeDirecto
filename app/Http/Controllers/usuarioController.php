@@ -70,7 +70,7 @@ class usuarioController extends Controller
         }
         #ATRAPAMOS UN QUERY EXCEPTION EN CASO QUE OCURRA Y DEVOLVEMOS EL ERROR A LA VISTA
         catch (\Illuminate\Database\QueryException $e) {
-            dd($e);
+            //dd($e);
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
                 $mensaje = "Error al crear nuevo usuario, entrada duplicada [Error Code: 1062]";
@@ -88,6 +88,31 @@ class usuarioController extends Controller
     public function show(usuario $usuario)
     {
         //
+    }
+
+    /**
+     * Search for the existence of an Usuario for their username and password.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        try {
+            $usuario = DB::table('usuarios')->where('username', $request->username)->where('password', $request->password)->get()->last();
+            return view('login', compact('usuario', 'request'));
+        } catch (\Illuminate\Database\QueryException $e) {
+            $errorCode = $e->errorInfo[1];
+            //dd($e->errorInfo);
+
+            if (false) {
+                $mensaje = '';
+                return view('/login', compact('mensaje'));
+            }else {
+                $mensaje = "Ha ocurrido un error al iniciar sesion [Error Code: " . $e->errorInfo[1] . "]";
+                return view('/login', compact('mensaje'));
+            }
+        }
     }
 
     /**
@@ -112,5 +137,19 @@ class usuarioController extends Controller
     public function destroy(usuario $usuario)
     {
         //
+    }
+
+    /**
+     * Controller to disconnect an acount from $_SESSION.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logOut()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+
+        return view('login');
     }
 }
