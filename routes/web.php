@@ -18,8 +18,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::view('/home', 'home')->name('home');
 Route::view('/login','login')->name('login');
 Route::view('/register','register')->name('register');
+Route::view('/perfil-profe','perfil-profe')->name('perfil-profe');
+Route::view('/perfil-estu','perfil-estu')->name('perfil-estu');
+Route::view('/camara','camara')->name('camara');
+Route::view('/camara-profe','camara-profe')->name('camara-profe');
+Route::view('/camara-estu','camara-estu')->name('camara-estu');
 
 #CONTROLLERS
 Route::resource('ctlrUsuarios', usuarioController::class)->only('store');

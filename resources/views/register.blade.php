@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if (isset($_SESSION['idUsuario'])) {
+if (isset($_SESSION['UsuarioOBJ'])) {
     header('Location: /');
     exit();
 }
@@ -38,7 +38,7 @@ if (isset($_SESSION['idUsuario'])) {
         @endif
         <form action="{{ route('ctlrUsuarios.store') }}" method="POST">
             <h1 class="h3 mb-3 fw-normal">Registrarse</h1>
-            
+
             <!-----------------------------       Nombre de Usuario      -------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingInput">Nombre de Usuario</label>
@@ -95,7 +95,7 @@ if (isset($_SESSION['idUsuario'])) {
                     <a href="/login" class="text-bg-dark">Iniciar sesion</a>
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
             {{ csrf_field() }}
             {{ method_field('POST') }}
         </form>

@@ -2,14 +2,14 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if (isset($_SESSION['idUsuario'])) {
+if (isset($_SESSION['UsuarioOBJ'])) {
     header('Location: /');
     exit();
 }
 
 if (isset($usuario)) {
     if ($usuario->username == $request->username) {
-        $_SESSION['idUsuario'] = $usuario->id;
+        $_SESSION['UsuarioOBJ'] = $usuario;
         header('Location: /');
         exit();
     }

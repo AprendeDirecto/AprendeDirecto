@@ -8,13 +8,29 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
-        {{--    <?php $indexURL = '/index.php'; ?>
-            <li class="nav-item <?php echo active_pagina($indexURL); ?>">
-                <a class="nav-link" href="{{ route('inicio') }}">Home <?php echo current_pagina($indexURL); ?></a>
+            @php
+                $aux1 = "<li class='nav-item'>
+                            <a class='nav-link' href='{{ route('camara-profe') }}'>Sala virtual</a>
+                        </li>";
+                $aux2 = "<li class='nav-item'> <a class='nav-link' href='{{ route('camara-estu')}}'>Sala virtual</a> </li>";
+                if ($_SESSION['UsuarioOBJ']->tipoUsuario = 'profesor') {
+                    echo $aux1;
+                }elseif ($_SESSION['UsuarioOBJ']->tipoUsuario = 'alumno') {
+                    echo $aux2;
+                }
+            @endphp
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ route('camara') }}'>Sala virtual (la buena)</a>
             </li>
-
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ route('perfil-profe') }}'>Perfil profesor</a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ route('perfil-estu') }}'>Perfil alumno</a>
+            </li>
+            {{--
             <?php $cuentasURL = '/index.php/cuentas'; ?>
-            <li class="nav-item <?php echo active_pagina($cuentasURL); ?>">
+            <li class="nav-item d<?php echo active_pagina($cuentasURL); ?>">
                 <a class="nav-link" href="{{ route('cuentas') }}">Cuentas <?php echo current_pagina($cuentasURL); ?></a>
             </li>
 
@@ -28,12 +44,15 @@
                 <a class="nav-link" href="{{ route('abonos') }}">abonos <?php echo current_pagina($abonosURL); ?></a>
             </li>
 
-            {{-- comment 
-      <?php $copiURL = '/index.php/copi'; ?>
-      <li class="nav-item <?php echo active_pagina($copiURL); ?>">
-        <a class="nav-link" href="{{route('copi')}}">copi <?php echo current_pagina($copiURL); ?></a>
-      </li>
-      --}}
+            <li class="nav.item">
+                <a class="nav-link" href="{{ route('camara') }}"> Sala</a>
+            </li>
+
+            <?php $copiURL = '/index.php/copi'; ?>
+            <li class="nav-item <?php echo active_pagina($copiURL); ?>">
+                <a class="nav-link" href="{{route('copi')}}">copi <?php echo current_pagina($copiURL); ?></a>
+            </li>
+            --}}
         </ul>
         <form class="form-inline" action="/desconectarCuenta" method="GET">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Desconectarse</button>
@@ -41,27 +60,3 @@
     </div>
 </nav>
 <?php
-
-//Function that gets the filename of the currently executing script (url) and compare it with the url of the navbar link, then give the respectives
-//tags to style the navbar
-//
-// active_pagina(String URL) Will return "'active'" if the page URL is the same that the variable String URL
-// current_pagina(String URL) Will return "'<span class="sr-only">(current)</span>'" if the page URL is the same that the variable String URL
-// mostrar_url() Will return the page URL
-function active_pagina(string $url)
-{
-    if (htmlspecialchars($_SERVER['PHP_SELF']) == $url) {
-        return 'active';
-    }
-}
-function current_pagina(string $url)
-{
-    if (htmlspecialchars($_SERVER['PHP_SELF']) == $url) {
-        return '<span class="sr-only">(current)</span>';
-    }
-}
-function mostrar_url()
-{
-    return htmlspecialchars($_SERVER['PHP_SELF']);
-}
-?>
