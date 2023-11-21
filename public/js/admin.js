@@ -9,12 +9,12 @@ var interfaceConfig = {
         'fodeviceselection',
         'hangup',                //SAlir
         'profile',
-        // 'info',               //ver el link
+         'info',               //ver el link
         'chat',
         'recording',             //grabar
         'livestreaming',      //admin lo puede hacer
         'etherpad',
-        // 'sharedvideo',        //admin lo puede hacer
+         'sharedvideo',        //admin lo puede hacer
         'settings',
         'raisehand',              //manito
         'videoquality',           //calidad de video
@@ -43,13 +43,13 @@ var interfaceConfig = {
 
 const domain = 'meet.jit.si';
 const options = {
-    roomName: 'CLASSES_YA_2023',
+    roomName: 'AprendeDirecto_2023',
     width: '100%',
     height: 500,
     parentNode: document.querySelector('#meet'),
     userInfo: {
         email: "admin@gmail.com",
-        displayName: "PROFESOR CLASES YA",
+        displayName: "APRENDEDIRECTO/PROFESOR",
     },
     noSsl: true,
     interfaceConfigOverwrite: interfaceConfig,

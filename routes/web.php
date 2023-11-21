@@ -26,7 +26,10 @@ Route::view('/perfil-estu','perfil-estu')->name('perfil-estu');
 Route::view('/camara','camara')->name('camara');
 Route::view('/camara-profe','camara-profe')->name('camara-profe');
 Route::view('/camara-estu','camara-estu')->name('camara-estu');
-
+Route::view('/nosotros','nosotros')->name('nosotros');
+Route::view('/barProfe','barProfe')->name('barProfe');
+Route::view('/barEstu','barEstu')->name('barEstu');
+Route::view('/buscarProfe','buscarProfe')->name('buscarProfe');
 #CONTROLLERS
 Route::resource('ctlrUsuarios', usuarioController::class)->only('store');
 

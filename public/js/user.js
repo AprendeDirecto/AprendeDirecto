@@ -44,13 +44,13 @@ var interfaceConfig = {
 
 const domain = 'meet.jit.si';
 const options = {
-    roomName: 'CLASSES_YA_2023',
+    roomName: 'APRENDEDIRECTO_2023',
     width: '100%',
     height: 500,
     parentNode: document.querySelector('#meet'),
     userInfo: {
         email: "user@gmail.com",
-        displayName: "ALUMNO CLASES YA",
+        displayName: "APRENDEDIRECTO - ALUMNO",
     },
     noSsl: true,
     interfaceConfigOverwrite: interfaceConfig,

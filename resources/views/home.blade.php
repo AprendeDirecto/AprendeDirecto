@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>AprendeDirecto</title>
 
     <!-- Enlace a la hoja de estilos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,21 +42,21 @@
     <header class="p-3 text-bg-dark">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <span class="pe-5">AprendeDirecto</span>
+                <a href="/home" class="nav-link px-2 text-white pe-5">AprendeDirecto</a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-white">Buscar Profesores</a></li>
+                    <li><a href="/buscarProfe" class="nav-link px-2 text-white">Buscar Profesores</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="comoFuncionaDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ¿Cómo Funciona?
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="comoFuncionaDropdown">
-                            <li><a class="dropdown-item" href="#">Profesor</a></li>
-                            <li><a class="dropdown-item" href="#">Alumno</a></li>
+                            <li><a class="dropdown-item" href="/barProfe">Profesor</a></li>
+                            <li><a class="dropdown-item" href="/barEstu">Alumno</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="nav-link px-2 text-white">¿Quiénes Somos?</a></li>
+                    <li><a href="/nosotros" class="nav-link px-2 text-white">¿Quiénes Somos?</a></li>
                 </ul>
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2"
@@ -135,7 +135,7 @@
     <!-- FOOTER -->
     <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+        <p>&copy;–2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
         </p>
     </footer>
 </body>
