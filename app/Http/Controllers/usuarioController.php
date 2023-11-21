@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\usuario;
+use Doctrine\DBAL\Schema\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View as ViewView;
 
 class usuarioController extends Controller
 {
@@ -66,7 +70,7 @@ class usuarioController extends Controller
         try {
             usuario::create($data);
             $mensaje = "Usuario registrado con éxito";
-            return view('/login', compact('mensaje'));
+            return view('inicio.login', compact('mensaje'));
         }
         #ATRAPAMOS UN QUERY EXCEPTION EN CASO QUE OCURRA Y DEVOLVEMOS EL ERROR A LA VISTA
         catch (\Illuminate\Database\QueryException $e) {
@@ -74,10 +78,10 @@ class usuarioController extends Controller
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
                 $mensaje = "Error al crear nuevo usuario, entrada duplicada [Error Code: 1062]";
-                return view('/register', compact('mensaje'));
+                return view('inicio.register', compact('mensaje'));
             } else {
                 $mensaje = "Ha ocurrido un error al insertar [Error Code: " . $e->errorInfo[1] . "]";
-                return view('/register', compact('mensaje'));
+                return view('inicio.register', compact('mensaje'));
             }
         }
     }
@@ -100,17 +104,18 @@ class usuarioController extends Controller
     {
         try {
             $usuario = DB::table('usuarios')->where('username', $request->username)->where('password', $request->password)->get()->last();
-            return view('login', compact('usuario', 'request'));
+            // dd($usuario);
+            return view('inicio.login', compact('usuario', 'request'));
         } catch (\Illuminate\Database\QueryException $e) {
             $errorCode = $e->errorInfo[1];
             //dd($e->errorInfo);
 
             if (false) {
                 $mensaje = '';
-                return view('/login', compact('mensaje'));
+                return view('inicio.login', compact('mensaje'));
             }else {
                 $mensaje = "Ha ocurrido un error al iniciar sesion [Error Code: " . $e->errorInfo[1] . "]";
-                return view('/login', compact('mensaje'));
+                return view('inicio.login', compact('mensaje'));
             }
         }
     }
@@ -150,6 +155,6 @@ class usuarioController extends Controller
         session_unset();
         session_destroy();
 
-        return view('login');
+        return to_route('home');
     }
 }

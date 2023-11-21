@@ -42,43 +42,43 @@ if (isset($_SESSION['UsuarioOBJ'])) {
             <!-----------------------------       Nombre de Usuario      -------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingInput">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="floatingInput" name="username"
+                <input type="text" class="form-control" id="floatingInput" name="username" value="{{ old('username') }}"
                     placeholder="juanitoGamer777" required>
             </div>
             <!---------------------------------     Contraseña    --------------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingPassword">Contraseña</label>
-                <input type="password" class="form-control" id="floatingPassword" name="password"
+                <input type="password" class="form-control" id="floatingPassword" name="password" value="{{ old('password') }}"
                     placeholder="Password" required>
             </div>
             <!-----------------------------------     E-mail     ---------------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingEmail">E-mail</label>
-                <input type="email" class="form-control" id="floatingEmail" name="correo"
+                <input type="email" class="form-control" id="floatingEmail" name="correo" value="{{ old('correo') }}"
                     placeholder="correo@Correo.correo" required>
             </div>
             <!------------------------------------      RUT     ---------------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingRUT">RUT</label>
-                <input type="text" class="form-control" id="floatingRUT" name="RUT"
+                <input type="text" class="form-control" id="floatingRUT" name="RUT" value="{{ old('RUT') }}"
                     placeholder="12.345.678-k" required>
             </div>
             <!----------------------------------       Nombre   ---------------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingNombre">Nombre</label>
-                <input type="text" class="form-control" id="floatingNombre" name="Nombre"
+                <input type="text" class="form-control" id="floatingNombre" name="Nombre" value="{{ old('Nombre') }}"
                     placeholder="Juan" required>
             </div>
             <!--------------------------------     Primer apellido     -------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingPriApellido">Primer apellido</label>
-                <input type="text" class="form-control" id="floatingPriApellido" name="primerApellido"
+                <input type="text" class="form-control" id="floatingPriApellido" name="primerApellido" value="{{ old('primerApellido') }}"
                     placeholder="Rojas" required>
             </div>
             <!---------------------------------    Segundo apellido    -------------------------------------------------------------->
             <div class="form-floating">
                 <label for="floatingSegApellido">Segundo apellido</label>
-                <input type="text" class="form-control" id="floatingSegApellido" name="segundoApellido"
+                <input type="text" class="form-control" id="floatingSegApellido" name="segundoApellido" value="{{ old('segundoApellido') }}"
                     placeholder="Salas">
             </div>
             <!-------------------------------------     ROL     --------------------------------------------------------------------->

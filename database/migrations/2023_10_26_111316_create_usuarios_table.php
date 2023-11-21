@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('segundoApellido')->nullable();
             $table->string('correo')->unique();
             $table->enum('tipoUsuario',['profesor','alumno']);
+            $table->string('descripcion')->nullable();
 
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('usuarios');
     }
 };

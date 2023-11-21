@@ -14,18 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+#Rutas dentro del servicio (Salas, index, perfiles, etc.)
+// General
+    Route::get('/', function () {
+        return view('intranet.index');
+    })->name('index');
+    Route::view('/camara','intranet.camara')->name('camara');
+// Profesor
+    Route::view('/camara-profe','intranet.profesor.camara-profe')->name('camara-profe');
+    Route::view('/perfil-profe','intranet.profesor.perfil-profe')->name('perfil-profe');
+// Alumno
+    Route::view('/camara-estu','intranet.estudiante.camara-estu')->name('camara-estu');
+    Route::view('/perfil-estu','intranet.estudiante.perfil-estu')->name('perfil-estu');
 
-Route::view('/home', 'home')->name('home');
-Route::view('/login','login')->name('login');
-Route::view('/register','register')->name('register');
-Route::view('/perfil-profe','perfil-profe')->name('perfil-profe');
-Route::view('/perfil-estu','perfil-estu')->name('perfil-estu');
-Route::view('/camara','camara')->name('camara');
-Route::view('/camara-profe','camara-profe')->name('camara-profe');
-Route::view('/camara-estu','camara-estu')->name('camara-estu');
+
+#Rutas para el inicio fuera del servicio (Home, login, registro, quienes somos, etc.)
+Route::view('/home', 'inicio.home')->name('home');
+Route::view('/login','inicio.login')->name('login');
+Route::view('/register','inicio.register')->name('register');
 
 #CONTROLLERS
 Route::resource('ctlrUsuarios', usuarioController::class)->only('store');
