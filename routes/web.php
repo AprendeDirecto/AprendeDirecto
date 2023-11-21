@@ -32,10 +32,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/home', 'inicio.home')->name('home');
 Route::view('/login','inicio.login')->name('login');
 Route::view('/register','inicio.register')->name('register');
-Route::view('/nosotros','nosotros')->name('nosotros');
-Route::view('/barProfe','barProfe')->name('barProfe');
-Route::view('/barEstu','barEstu')->name('barEstu');
-Route::view('/buscarProfe','buscarProfe')->name('buscarProfe');
+Route::view('/nosotros','inicio.nosotros')->name('nosotros');
+Route::view('/barProfe','inicio.barProfe')->name('barProfe');
+Route::view('/barEstu','inicio.barEstu')->name('barEstu');
+Route::view('/buscarProfe','inicio.buscarProfe')->name('buscarProfe');
 
 #CONTROLLERS
 Route::resource('ctlrUsuarios', usuarioController::class)->only('store');

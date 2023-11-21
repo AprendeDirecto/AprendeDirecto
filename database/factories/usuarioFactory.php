@@ -28,7 +28,8 @@ class usuarioFactory extends Factory
             'Nombre'            => $this->faker->name(),
             'primerApellido'    => $this->faker->lastName(),
             'segundoApellido'   => $this->faker->lastName(),
-            'tipoUsuario'       => $this->faker->randomElement(['alumno','profesor'])
+            'tipoUsuario'       => $this->faker->randomElement(['alumno','profesor']),
+            'descripcion'       => $this->faker->text()
         ];
     }
 }

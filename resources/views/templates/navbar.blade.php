@@ -15,16 +15,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             {{-- @dd($_SESSION['UsuarioOBJ']) --}}
+
+            {{-- navbar de PROFESOR --}}
             @if ($_SESSION['UsuarioOBJ']->tipoUsuario == 'profesor')
                 <li class='nav-item {{isNavItemActive('camara-profe')}}'>
                     <a class='nav-link' href='{{ route('camara-profe') }}'>Sala virtual</a>
                 </li>
+                <li class='nav-item {{isNavItemActive('')}}'>
+                    <a class='nav-link' href='{{ route('') }}'>Publicar clase</a>
+                </li>
                 <li class='nav-item {{isNavItemActive('perfil-profe')}}'>
                     <a class='nav-link' href='{{ route('perfil-profe') }}'>Perfil profesor</a>
                 </li>
+            {{-- navbar de ALUMNO --}}
             @elseif ($_SESSION['UsuarioOBJ']->tipoUsuario == 'alumno')
                 <li class='nav-item {{isNavItemActive('camara-estu')}}'>
                     <a class='nav-link' href='{{ route('camara-estu')}}'>Sala virtual</a>
+                </li>
+                <li class='nav-item {{isNavItemActive('')}}'>
+                    <a class='nav-link' href='{{ route('') }}'>Buscar clase</a>
                 </li>
                 <li class='nav-item {{isNavItemActive('perfil-estu')}}'>
                     <a class='nav-link' href='{{ route('perfil-estu') }}'>Perfil alumno</a>

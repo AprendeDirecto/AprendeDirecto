@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\materia;
 use App\Models\usuario;
 use Illuminate\Database\Seeder;
 
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
             'Nombre'            => 'Alonso',
             'primerApellido'    => 'Salas',
             'segundoApellido'   => 'Inostroza',
-            'tipoUsuario'       => 'alumno'
+            'tipoUsuario'       => 'alumno',
+            'descripcion'       => ''
         ]);
         usuario::factory()->create([
             'username'          => 'profesor',
@@ -36,7 +38,10 @@ class DatabaseSeeder extends Seeder
             'Nombre'            => 'Juan',
             'primerApellido'    => 'Salas',
             'segundoApellido'   => 'Rojas',
-            'tipoUsuario'       => 'profesor'
+            'tipoUsuario'       => 'profesor',
+            'descripcion'       => ''
         ]);
+
+        materia::factory(20)->create();
     }
 }
