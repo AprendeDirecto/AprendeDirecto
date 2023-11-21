@@ -1,19 +1,20 @@
 <?php
+    //dd($request);
 if (!isset($_SESSION)) {
     session_start();
 }
 if (isset($_SESSION['UsuarioOBJ'])) {
+    //dd($_SESSION);
     header('Location: /');
     exit();
 }
-
+// dd($usuario);
 if (isset($usuario)) {
     if ($usuario->username == $request->username) {
         $_SESSION['UsuarioOBJ'] = $usuario;
         header('Location: /');
         exit();
     }
-    $mensaje ='Usuario no encontrado';
 }
 
 ?>
@@ -32,6 +33,14 @@ if (isset($usuario)) {
 </head>
 
 <body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <span class="pe-5">AprendeDirecto</span>
+                <a href="{{ Route('home') }}" class="nav-link px-2 text-black">volver a inicio</a>
+            </div>
+        </div>
+    </header>
     <div class="p-5">
         @if (isset($mensaje))
             <div class="alert alert-success alert-dismissible fade show" role="alert">{{ $mensaje }}</div>

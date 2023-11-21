@@ -1,6 +1,7 @@
 <?php
     if (!isset($_SESSION)) {
-    session_start();
+        session_start();
+        // dd($_SESSION,"Estamos aqui");
     }
     if (!isset($_SESSION['UsuarioOBJ'])) {
         header('Location: /home');
@@ -29,20 +30,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
+    {{-- @dd($_SESSION) --}}
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: sans-serif;
         }
-
         .color-container {
             width: 16px;
             height: 16px;
             display: inline-block;
             border-radius: 4px;
         }
-
         a {
             text-decoration: none;
         }
@@ -56,6 +56,7 @@
             <div class="alert alert-success alert-dismissible fade show" role="alert">{{ $mensaje }}</div>
     @endif
     @yield('container')
+    {{-- @dd($_SESSION) --}}
 </body>
 <footer>
     <script>

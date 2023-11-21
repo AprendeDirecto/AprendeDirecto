@@ -1,3 +1,16 @@
+<?php
+  if (!isset($_SESSION)) {
+    session_start();
+    // dd($_SESSION,"Estamos aqui");
+  }
+  if (!isset($_SESSION['UsuarioOBJ'])) {
+    header('Location: /home');
+    exit();
+  }elseif ($_SESSION['UsuarioOBJ']->tipoUsuario != 'alumno') {
+    header('Location: /');
+    exit();
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>

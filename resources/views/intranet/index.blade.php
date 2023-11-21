@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-start">
-                    <p style="font-size: 26px;">Presupuesto: 2000$
+                    <p style="font-size: 26px;">
                     <p>
                 </div>
                 <div class="d-flex justify-content-start">
@@ -32,4 +32,5 @@
             </div>
         </div>
     </div>
+    {{-- @dd($_SESSION['UsuarioOBJ']) --}}
 @endsection

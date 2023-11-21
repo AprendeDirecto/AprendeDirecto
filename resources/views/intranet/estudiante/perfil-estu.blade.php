@@ -1,4 +1,17 @@
 @extends('templates.master')
+<?php
+  if (!isset($_SESSION)) {
+    session_start();
+    // dd($_SESSION,"Estamos aqui");
+  }
+  if (!isset($_SESSION['UsuarioOBJ'])) {
+    header('Location: /home');
+    exit();
+  }elseif ($_SESSION['UsuarioOBJ']->tipoUsuario != 'alumno') {
+    header('Location: /');
+    exit();
+  }
+?>
 @section('title')
     Perfil estudiante
 @endsection
@@ -15,10 +28,11 @@
           <div class="card shadow-sm">
             <div class="card-header bg-transparent text-center">
               <img class="profile_img" src="{{ asset('img/logo.jpg') }}" alt="">
-              <h3>Ana Perez Parra</h3>
+              {{-- @dd($_SESSION) --}}
+              <h3>{{$_SESSION['UsuarioOBJ']->Nombre.' '.$_SESSION['UsuarioOBJ']->primerApellido.' '.$_SESSION['UsuarioOBJ']->segundoApellido}}</h3>
             </div>
             <div class="card-body">
-              <p class="mb-0"><strong class="pr-1">Interés Academico:</strong>Programación</p>
+              <p class="mb-0"><strong class="pr-1">Nombre de usuario:</strong>{{$_SESSION['UsuarioOBJ']->username}}</p>
               <p class="mb-0"><strong class="pr-1">Profesor/a preferido</strong>-</p>
               <p class="mb-0"><strong class="pr-1">Frecuencia de actividad:</strong>Activa</p>
             </div>
@@ -34,32 +48,35 @@
                 <tr>
                   <th width="30%">Correo</th>
                   <td width="2%">:</td>
-                  <td>Micorreo@mail.com</td>
+                  <td>{{$_SESSION['UsuarioOBJ']->correo}}</td>
                 </tr>
                 <tr>
-                  <th width="30%">Edad	</th>
+                  <th width="30%">RUT</th>
                   <td width="2%">:</td>
-                  <td>18</td>
+                  <td>
+                    @php $r=$_SESSION['UsuarioOBJ']->RUT; echo substr($r,0,2).'.'.substr($r,2,3).'.'.substr($r,5,3).'-'.$_SESSION['UsuarioOBJ']->digVer @endphp
+                  </td>
                 </tr>
                 <tr>
                   <th width="30%">Historial</th>
                   <td width="2%">:</td>
-                  <td>Estudiante desde el 5 febrero, 2023</td>
+                  <td>{{'Estudiante desde el '.DateTime::createFromFormat('Y-m-d H:i:s',$_SESSION['UsuarioOBJ']->created_at)->format("j \d\\e F \d\\e\l Y")}}</td>
                 </tr>
                 <tr>
-                  <th width="30%">Pais</th>
+                  <th width="30%">Tipo de usuario</th>
                   <td width="2%">:</td>
-                  <td>Chile</td>
-                </tr>
-                <tr>
-                  <th width="30%">Region</th>
-                  <td width="2%">:</td>
-                  <td>Metropolitana</td>
+                  <td>{{$_SESSION['UsuarioOBJ']->tipoUsuario}}</td>
                 </tr>
               </table>
 
               <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Sobre mí</h3>
-              <p class="text-justify">¡Hola! Mi nombre es Ana y soy una apasionada estudiante universitaria que adora explorar el mundo del conocimiento. Actualmente, estoy cursando mi licenciatura en Ciencias de la Computación en la Universidad TechVille. Desde muy joven, me intrigó el mundo de la tecnología y cómo puede transformar nuestras vidas de maneras inimaginables. Mi fascinación por la informática me llevó a sumergirme en el estudio de la programación, el desarrollo web y la inteligencia artificial.</p>
+              <p class="text-justify">
+                @if (is_null($_SESSION['UsuarioOBJ']->descripcion) || $_SESSION['UsuarioOBJ']->descripcion == "")
+                  Aun no tienes una descripcion, animate a hacer una clickeando en actualizar perfil.
+                @else
+                  {{$_SESSION['UsuarioOBJ']->descripcion}}
+                @endif
+              </p>
             </div>
           </div>
         </div>
