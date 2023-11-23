@@ -1,9 +1,5 @@
 @php
-    function isNavItemActive($route) {
-        if (route("$route") == url()->current()){
-            echo "active";
-        }
-    }
+    use App\Http\Controllers\Controller;
 @endphp
 <!-- navbar with boostrap 4.6 active validation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,25 +13,26 @@
             {{-- @dd($_SESSION['UsuarioOBJ']) --}}
 
             {{-- navbar de PROFESOR --}}
+            {{-- {{dd(Controller::isNavItemActive('dasd'))}} --}}
             @if ($_SESSION['UsuarioOBJ']->tipoUsuario == 'profesor')
-                <li class='nav-item {{isNavItemActive('camara-profe')}}'>
+                <li class='nav-item {{Controller::isNavItemActive('camara-profe')}}'>
                     <a class='nav-link' href='{{ route('salas-profe') }}'>Tus clases</a>
                 </li>
-                <li class='nav-item {{isNavItemActive('')}}'>
-                    <a class='nav-link' href='{{ route('') }}'>Publicar clase</a>
+                <li class='nav-item {{Controller::isNavItemActive('')}}'>
+                    <a class='nav-link' href='#'>Publicar clase</a>
                 </li>
-                <li class='nav-item {{isNavItemActive('perfil-profe')}}'>
+                <li class='nav-item {{Controller::isNavItemActive('perfil-profe')}}'>
                     <a class='nav-link' href='{{ route('perfil-profe') }}'>Perfil profesor</a>
                 </li>
             {{-- navbar de ALUMNO --}}
             @elseif ($_SESSION['UsuarioOBJ']->tipoUsuario == 'alumno')
-                <li class='nav-item {{isNavItemActive('camara-estu')}}'>
+                <li class='nav-item {{Controller::isNavItemActive('camara-estu')}}'>
                     <a class='nav-link' href='{{ route('salas-estu')}}'>Mis clases</a>
                 </li>
-                <li class='nav-item {{isNavItemActive('')}}'>
-                    <a class='nav-link' href='{{ route('') }}'>Buscar clase</a>
+                <li class='nav-item {{Controller::isNavItemActive('')}}'>
+                    <a class='nav-link' href='#'>Buscar clase</a>
                 </li>
-                <li class='nav-item {{isNavItemActive('perfil-estu')}}'>
+                <li class='nav-item {{Controller::isNavItemActive('perfil-estu')}}'>
                     <a class='nav-link' href='{{ route('perfil-estu') }}'>Perfil alumno</a>
                 </li>
             @endif

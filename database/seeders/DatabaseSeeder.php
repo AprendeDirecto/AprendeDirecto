@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        usuario::factory(10)->create();
-
         usuario::factory()->create([
             'username'          => 'alumno',
             'password'          => '123456789',
@@ -43,5 +41,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         materia::factory(20)->create();
+        usuario::factory(100)->create();
     }
 }

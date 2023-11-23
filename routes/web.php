@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', function () {
         return view('intranet.index');
     })->name('index');
-    Route::view('/camara','intranet.camara')->name('camara');
+    // Route::view('/camara','intranet.camara')->name('camara');
 // Profesor
     Route::view('/camara-profe','intranet.profesor.camara-profe')->name('camara-profe');
     Route::view('/perfil-profe','intranet.profesor.perfil-profe')->name('perfil-profe');
