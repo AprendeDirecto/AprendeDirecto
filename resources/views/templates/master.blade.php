@@ -37,17 +37,119 @@
             padding: 0;
             font-family: sans-serif;
         }
+
         .color-container {
             width: 16px;
             height: 16px;
             display: inline-block;
             border-radius: 4px;
         }
+
         a {
             text-decoration: none;
         }
-    </style>
 
+        p {
+            text-align: justify;
+            font-family: 'roboto', serif;
+            font-size: 20px
+        }
+
+        #p {
+            font-family: 'roboto', serif;
+            font-size: 19px
+        }
+
+        #customFont {
+            font-style: italic;
+            font-family: 'Bodoni MT', serif;
+        }
+
+        #customFont1 {
+            font-family: 'Franklin Gothic', serif;
+        }
+
+        #customFont2 {
+            font-family: 'roboto', serif;
+            border-bottom: 1.5px solid black;
+            padding-bottom: 10px;
+
+        }
+
+        #cus {
+            border-bottom: 3px solid black;
+        }
+
+        #padding-prueba {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        .img-custom-size {
+            width: 500px; /* Elige el ancho que desees */
+            height: 400px; /* Elige la altura que desees */
+
+        }
+
+        .bg-image {
+            background-image: url('{{ asset("img/fondoS2.jpg") }}'); /* Reemplaza 'tu-imagen.jpg' con la ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            height: 900px; /* Ajusta la altura según tus necesidades */
+            color: white; /* Cambia el color del texto para que sea legible en la imagen */
+        }
+
+        .translucent-bg {
+            font-family: 'roboto', serif;
+            margin-top: 1px;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad del 70% */
+            padding: 20px; /* Añade un relleno para que el contenido no esté pegado al borde */
+            color: white; /* Cambia el color del texto para que sea legible en el fondo oscuro */
+
+        }
+        #pr{
+            font-family: 'roboto', serif;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: solid black 2px;
+            color: white
+        }
+
+        #custom {
+            border-bottom: solid white 3px;
+            padding-bottom: 10px;
+        }
+
+        #custom1 {
+            border-bottom: solid white 3px;
+            padding-bottom: 10px;
+            padding-right: 100px;
+        }
+
+
+
+        #custom-card {
+            margin-top: 20px
+        }
+
+        .room-info {
+            width: 80%;
+            float: left;
+        }
+
+        /* Estilo para el lado derecho de la card (botones) */
+        .room-buttons {
+            width: 20%;
+            float: right;
+            text-align: right;
+            padding-top: 10px;
+        }
+
+        /* Estilo para los botones dentro del lado derecho */
+        .room-buttons button, #customA {
+            margin-bottom: 5px;
+            width: 100%; /* Hace que los botones ocupen el 100% del ancho disponible */
+        }
+    </style>
     @include('templates.navbar')
 </head>
 <body>

@@ -15,9 +15,6 @@
             {{-- navbar de PROFESOR --}}
             {{-- {{dd(Controller::isNavItemActive('dasd'))}} --}}
             @if ($_SESSION['UsuarioOBJ']->tipoUsuario == 'profesor')
-                <li class='nav-item {{Controller::isNavItemActive('camara-profe')}}'>
-                    <a class='nav-link' href='{{ route('salas-profe') }}'>Tus clases</a>
-                </li>
                 <li class='nav-item {{Controller::isNavItemActive('')}}'>
                     <a class='nav-link' href='#'>Publicar clase</a>
                 </li>
@@ -26,9 +23,6 @@
                 </li>
             {{-- navbar de ALUMNO --}}
             @elseif ($_SESSION['UsuarioOBJ']->tipoUsuario == 'alumno')
-                <li class='nav-item {{Controller::isNavItemActive('camara-estu')}}'>
-                    <a class='nav-link' href='{{ route('salas-estu')}}'>Mis clases</a>
-                </li>
                 <li class='nav-item {{Controller::isNavItemActive('')}}'>
                     <a class='nav-link' href='#'>Buscar clase</a>
                 </li>

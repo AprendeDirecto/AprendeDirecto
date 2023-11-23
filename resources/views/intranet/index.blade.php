@@ -1,36 +1,22 @@
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+        // dd($_SESSION,"Estamos aqui");
+    }
+    if (!isset($_SESSION['UsuarioOBJ'])) {
+        header('Location: /home');
+        exit();
+    }
+?>
 @extends('templates.master')
 @section('title')
     Inicio
 @endsection
 @section('container')
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header" style="background-color: #E5E5E5; text-align: center;">
-                <h1>Resumen</h1>
-            </div>
-            <div class="card-body">
-                <div class="d-flex justify-content-start">
-                    <p style="font-size: 26px;">
-                    <p>
-                </div>
-                <div class="d-flex justify-content-start">
-                    <p style="font-size: 15px; font-weight: bold;">Total cuentas: 12000$
-                    <p>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <div style="width: max-content;">
-                        <div class="d-flex justify-content-start">
-                            <p style="font-size: 20px;">Falta por pagar: 10000$
-                            <p>
-                        </div>
-                        <div class="d-flex justify-content-start">
-                            <p style="font-size: 20px;">Falta por cobrar: 0$
-                            <p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @if ($_SESSION['UsuarioOBJ']->tipoUsuario == 'profesor')
+        @include('intranet.profesor.salas-profe')
+    @elseif($_SESSION['UsuarioOBJ']->tipoUsuario == 'alumno')
+        @include('intranet.estudiante.salas-estu')
+    @endif
     {{-- @dd($_SESSION['UsuarioOBJ']) --}}
 @endsection
