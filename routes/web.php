@@ -23,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 // Profesor
     Route::view('/camara-profe','intranet.profesor.camara-profe')->name('camara-profe');
     Route::view('/perfil-profe','intranet.profesor.perfil-profe')->name('perfil-profe');
+    Route::view('/salas-profe','intranet.profesor.salas-profe')->name('salas-profe');
 // Alumno
     Route::view('/camara-estu','intranet.estudiante.camara-estu')->name('camara-estu');
     Route::view('/perfil-estu','intranet.estudiante.perfil-estu')->name('perfil-estu');
+    Route::view('/salas-estu','intranet.estudiante.salas-estu')->name('salas-estu');
 
 
 #Rutas para el inicio fuera del servicio (Home, login, registro, quienes somos, etc.)
@@ -36,6 +38,10 @@ Route::view('/nosotros','inicio.nosotros')->name('nosotros');
 Route::view('/barProfe','inicio.barProfe')->name('barProfe');
 Route::view('/barEstu','inicio.barEstu')->name('barEstu');
 Route::view('/buscarProfe','inicio.buscarProfe')->name('buscarProfe');
+
+
+
+
 
 #CONTROLLERS
 Route::resource('ctlrUsuarios', usuarioController::class)->only('store');

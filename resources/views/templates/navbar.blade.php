@@ -2,7 +2,7 @@
     function isNavItemActive($route) {
         if (route("$route") == url()->current()){
             echo "active";
-        } 
+        }
     }
 @endphp
 <!-- navbar with boostrap 4.6 active validation -->
@@ -19,7 +19,7 @@
             {{-- navbar de PROFESOR --}}
             @if ($_SESSION['UsuarioOBJ']->tipoUsuario == 'profesor')
                 <li class='nav-item {{isNavItemActive('camara-profe')}}'>
-                    <a class='nav-link' href='{{ route('camara-profe') }}'>Sala virtual</a>
+                    <a class='nav-link' href='{{ route('salas-profe') }}'>Tus clases</a>
                 </li>
                 <li class='nav-item {{isNavItemActive('')}}'>
                     <a class='nav-link' href='{{ route('') }}'>Publicar clase</a>
@@ -30,7 +30,7 @@
             {{-- navbar de ALUMNO --}}
             @elseif ($_SESSION['UsuarioOBJ']->tipoUsuario == 'alumno')
                 <li class='nav-item {{isNavItemActive('camara-estu')}}'>
-                    <a class='nav-link' href='{{ route('camara-estu')}}'>Sala virtual</a>
+                    <a class='nav-link' href='{{ route('salas-estu')}}'>Mis clases</a>
                 </li>
                 <li class='nav-item {{isNavItemActive('')}}'>
                     <a class='nav-link' href='{{ route('') }}'>Buscar clase</a>
