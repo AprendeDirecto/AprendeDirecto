@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\materiaController;
+use App\Http\Controllers\publicacionController;
 use App\Http\Controllers\usuarioController;
+use App\Models\materia;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +26,11 @@ use Illuminate\Support\Facades\Route;
 // Profesor
     Route::view('/camara-profe','intranet.profesor.camara-profe')->name('camara-profe');
     Route::view('/perfil-profe','intranet.profesor.perfil-profe')->name('perfil-profe');
+    Route::view('/publicarclase','intranet.profesor.publicar-clase')->name('publicar-clase');
 // Alumno
     Route::view('/camara-estu','intranet.estudiante.camara-estu')->name('camara-estu');
     Route::view('/perfil-estu','intranet.estudiante.perfil-estu')->name('perfil-estu');
+    Route::view('/buscarclase','intranet.estudiante.buscar-clase')->name('buscar-clase');
 
 
 #Rutas para el inicio fuera del servicio (Home, login, registro, quienes somos, etc.)
@@ -43,6 +48,8 @@ Route::view('/buscarProfe','inicio.buscarProfe')->name('buscarProfe');
 
 #CONTROLLERS
 Route::resource('ctlrUsuarios', usuarioController::class)->only('store');
+// Route::resource('ctlrMaterias', materiaController::class);
+Route::resource('ctlrPublicacion', publicacionController::class);
 
 Route::get('/confirmarUsuario', [usuarioController::class, 'search']);
 Route::get('/desconectarCuenta', [usuarioController::class, 'logOut']);

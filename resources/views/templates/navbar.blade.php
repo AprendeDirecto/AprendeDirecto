@@ -15,16 +15,16 @@
             {{-- navbar de PROFESOR --}}
             {{-- {{dd(Controller::isNavItemActive('dasd'))}} --}}
             @if ($_SESSION['UsuarioOBJ']->tipoUsuario == 'profesor')
-                <li class='nav-item {{Controller::isNavItemActive('')}}'>
-                    <a class='nav-link' href='#'>Publicar clase</a>
+                <li class='nav-item {{Controller::isNavItemActive('publicar-clase')}}'>
+                    <a class='nav-link' href='{{ route('publicar-clase') }}'>Publicar clase</a>
                 </li>
                 <li class='nav-item {{Controller::isNavItemActive('perfil-profe')}}'>
                     <a class='nav-link' href='{{ route('perfil-profe') }}'>Perfil profesor</a>
                 </li>
             {{-- navbar de ALUMNO --}}
             @elseif ($_SESSION['UsuarioOBJ']->tipoUsuario == 'alumno')
-                <li class='nav-item {{Controller::isNavItemActive('')}}'>
-                    <a class='nav-link' href='#'>Buscar clase</a>
+                <li class='nav-item {{Controller::isNavItemActive('buscar-clase')}}'>
+                    <a class='nav-link' href='{{ route('buscar-clase') }}'>Buscar clase</a>
                 </li>
                 <li class='nav-item {{Controller::isNavItemActive('perfil-estu')}}'>
                     <a class='nav-link' href='{{ route('perfil-estu') }}'>Perfil alumno</a>

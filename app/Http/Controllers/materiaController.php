@@ -12,7 +12,11 @@ class materiaController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            return materia::all(['id','nombre']);
+        } catch (\Throwable $e) {
+            dd($e);
+        }
     }
 
     /**
